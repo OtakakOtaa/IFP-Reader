@@ -132,19 +132,19 @@ public sealed partial class IfpReader : BinaryReader
     {
         return new Quaternion
         {
-            X = ReadInt16(),
-            Y = ReadInt16(),
-            Z = ReadInt16(),
-            W = ReadInt16(),
+            X = ReadInt16() / IfpHeader.RotationDivisor,
+            Y = ReadInt16() / IfpHeader.RotationDivisor,
+            Z = ReadInt16() / IfpHeader.RotationDivisor,
+            W = ReadInt16() / IfpHeader.RotationDivisor,
         };
     }
     private Vector3 ReadVector3()
     {
         return new Vector3
         {
-            X = ReadInt16(),
-            Y = ReadInt16(),
-            Z = ReadInt16(),
+            X = ReadInt16() / IfpHeader.TranslationDivisor,
+            Y = ReadInt16() / IfpHeader.TranslationDivisor,
+            Z = ReadInt16() / IfpHeader.TranslationDivisor,
         };
     }
 
